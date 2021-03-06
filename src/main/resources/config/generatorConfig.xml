@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 指定数据库驱动包 -->
+    <!-- <classPathEntry location="~\mysql\mysql-connector-java\5.1.46\mysql-connector-java-5.1.46.jar" /> -->
+    <context id="MySQLTables" targetRuntime="MyBatis3">
+        <!-- 配置生成pojo的序列化的插件  -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+
+        <!-- 配置生成pojo的toString()方法的插件 -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <!-- 取消生成的注释 -->
+        <!-- <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="false"/>
+        </commentGenerator> -->
+        <!-- 通过type指定自定义的注释 -->
+        <commentGenerator type="com.everyouth.entitygenerator.MyEntityGenerator">
+            <!-- 不要开启，否则将不会使用自定义注释 -->
+            <!-- <property name="suppressAllComments" value="true"> -->
+        </commentGenerator>
+
+
+        <!-- 数据库连接参数 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/everyouthtech_secret?useUnicode=true&amp;characterEncoding=UTF8&amp;useSSL=false"
+                        userId="root"
+                        password="123456">
+            <property name="useInformationSchema" value="true" />
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:生成PO类的位置 -->
+        <javaModelGenerator
+                targetPackage="com.everyouthtech.oa.secret.orm.pojo" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值被清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- targetProject:mapper映射文件生成的位置 -->
+        <sqlMapGenerator
+                targetPackage="com.everyouthtech.oa.secret.orm.mapper" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- targetPackage：mapper接口生成的位置 -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.everyouthtech.oa.secret.orm.dao" targetProject=".\src\main\java">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+
+
+
+
+        <!-- 指定数据库哪些表生成代码 -->
+        <table schema="" tableName="t_dictory_secret">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_parents_dictory_secret">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_study_or_work_record">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_related_project">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_position_change">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_personal_report">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_passport">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+            <columnOverride column="valid" jdbcType="BOOLEAN"/>
+        </table>
+        <table schema="" tableName="t_secret_personnel_overseas_funding">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_info">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+            <columnOverride column="promise" jdbcType="BOOLEAN"/>
+        </table>
+        <table schema="" tableName="t_secret_personnel_family_member">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_secret_personnel_crime">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+        <table schema="" tableName="t_regulation">
+            <property name="useActualColumnNames" value="false" />
+            <generatedKey column="Id" sqlStatement="MySql" identity="true" />
+            <domainObjectRenamingRule searchString="^T" replaceString="" />
+        </table>
+    </context>
+</generatorConfiguration>
